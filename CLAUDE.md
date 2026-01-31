@@ -1,21 +1,38 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 This project uses a shared context file (`AGENTS.md`) for common project guidelines. Please refer to it for information on build commands, code style, and design philosophy.
 
 This file is reserved for Claude Code-specific instructions.
 
-# import the following files (using the `@` syntax):
+## Quick Reference
 
-- @AGENTS.md
-- @DISCOVERIES.md
-- @ai_context/IMPLEMENTATION_PHILOSOPHY.md
-- @ai_context/MODULAR_DESIGN_PHILOSOPHY.md
-- @ai_context/DESIGN-PHILOSOPHY.md
-- @ai_context/DESIGN-PRINCIPLES.md
-- @ai_context/design/DESIGN-FRAMEWORK.md
-- @ai_context/design/DESIGN-VISION.md
+```bash
+make install                    # Install dependencies (uses uv)
+make check                      # Run lint, format, type check
+make test                       # Run all tests
+uv run pytest tests/path/to/test.py::TestClass::test_name -v  # Single test
+uv add package-name             # Add dependency (run in project directory)
+uv add --dev package-name       # Add dev dependency
+```
+
+## Agent and Command Discovery
+
+- **Available agents**: `.claude/agents/` - Specialized sub-agents for various tasks
+- **Slash commands**: `.claude/commands/` - User-invocable commands like `/commit`, `/prime`
+
+## Recommended Context Files
+
+When working on this project, consider reading these files for deeper context:
+- `AGENTS.md` - Core development guidelines and philosophy
+- `DISCOVERIES.md` - Non-obvious problems and solutions discovered during development
+- `ai_context/IMPLEMENTATION_PHILOSOPHY.md` - Detailed implementation approach
+- `ai_context/MODULAR_DESIGN_PHILOSOPHY.md` - Brick-and-stud modular patterns
+- `ai_context/DESIGN-PHILOSOPHY.md` - High-level design thinking
+- `ai_context/DESIGN-PRINCIPLES.md` - Core design principles
+- `ai_context/design/DESIGN-FRAMEWORK.md` - Design framework details
+- `ai_context/design/DESIGN-VISION.md` - Design vision
 
 # Claude's Working Philosophy and Memory System
 
@@ -210,14 +227,6 @@ Single message with multiple Task calls:
 - Embrace ruthless simplicity
 - Build as bricks and studs
 - Trust in emergence over control
-
-## Next Actions
-
-- Design comprehensive knowledge synthesis architecture
-- Create specialized planning sub-agent
-- Build memory retrieval system
-- Establish measurement framework
-- Begin continuous learning cycle
 
 ## Document Reference Protocol
 
